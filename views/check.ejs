@@ -65,7 +65,7 @@
             <div class="dogs-inner-container">   
                 <% resulter.forEach(function(post){ %>
                     <div class="dogs-case">
-                        <form action="/check" method="post"  >
+                        <form action="/check" method="post" >
                             <img class="dogs-images" src="<%= post.image_link %>" alt="" width="250px" height="200px">
                             <h5 class="dogs-descriptions"> Name: <%= post.name %> </h5>
                             <h5 class="dogs-descriptions"> Protectiveness: <%= post.protectiveness %>/5</h5>
@@ -73,7 +73,7 @@
                             <div class="right-corner">
                                 <div class="straight">
                                    
-                                    <button id="like-button" name="love"    value="<%= post.image_link %>" type="submit" >
+                                    <button id="like-button" name="love"   value="<%= post.image_link %>" type="submit" >
                                         <span class="material-symbols-outlined" style="color: black;">
                                         favorite
                                         </span>
