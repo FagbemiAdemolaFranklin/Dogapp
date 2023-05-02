@@ -285,7 +285,13 @@ async function main() {
 
             await logIn.register ({username:username},password1, function(err){
                     if(err){
-                        console.log(err)
+                        const body = "username is already taken"
+                        response
+                        .writeHead(401, {
+                            'Content-Length': Buffer.byteLength(body),
+                            'Content-Type': 'text/plain'
+                        })
+                        .end(body);
         
                     }else{
                         response.redirect("/signIn");   
