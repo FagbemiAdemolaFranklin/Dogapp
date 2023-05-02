@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300&family=Roboto:wght@700&family=Rubik:wght@500&family=Varela&display=swap" rel="stylesheet">
+
+</head>
+<body class="check-body">
+    <div class="whole-container">
+        <div class="check-top-container">
+            <img src="https://openclipart.org/download/284669/publicdomainq-dog_Saint_Bernard.svg" alt="" width="150px" height="" style="position: absolute; margin-left: 40px; margin-top: 25px;">
+            <div class="nav-bar-check">
+                <nav class="nav-bar-buttons">
+                    <a  class="check-nav-bar-buttons"  href="/">Home</a>
+                    <a  class="check-nav-bar-buttons" href="/liked">Liked</a>
+                    <a class="check-nav-bar-buttons"  href="/profile">Profile</a>
+                    <a class="check-nav-bar-buttons"  href="/about">About</a>
+                    <a class="check-nav-bar-buttons"  href="/log">Log Out</a>
+                </nav>
+                
+                <div class="hidden-nav">
+                    <span id="harmburger" class="material-symbols-outlined">
+                        menu
+                        <div class="nav-inside-container">
+                            <a  class="nav-inside-buttons"  href="/">Home</a>
+                            <a  class="nav-inside-buttons" href="/liked">Liked</a>
+                            <a class="nav-inside-buttons"  href="/profile">Profile</a>
+                            <a class="nav-inside-buttons"  href="/about">About</a>
+                            <a class="nav-inside-buttons"  href="/log">Log Out</a>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <div class="search-container">
+                <div class="search">
+                    <form action="/check" method="post">
+                        <input required class="search-space" type="text" name="search" placeholder="Enter Species">
+                        <button class="search-button" name="searcher" type="submit" >Search</button>
+                    </form>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+
+        <div class="dogs-container">
+            <div class="dogs-inner-container">   
+                <% resulter.forEach(function(post){ %>
+                    <div class="dogs-case">
+                        <form action="/check" method="post"  >
+                            <img class="dogs-images" src="<%= post.image_link %>" alt="" width="250px" height="200px">
+                            <h5 class="dogs-descriptions"> Name: <%= post.name %> </h5>
+                            <h5 class="dogs-descriptions"> Protectiveness: <%= post.protectiveness %>/5</h5>
+                            <h5 id="energy" class="dogs-descriptions">Energy: <%= post.energy %>/5 </h5>
+                            <div class="right-corner">
+                                <div class="straight">
+                                   
+                                    <button id="like-button" name="love"    value="<%= post.image_link %>" type="submit" >
+                                        <span class="material-symbols-outlined" style="color: black;">
+                                        favorite
+                                        </span>
+                                    </button> 
+                                    
+                                    <div class="dropdown">
+                                        <button type="menu" onclick="event.preventDefault()" > <i><span class="material-symbols-outlined" style="color: black;">
+                                            keyboard_arrow_down
+                                            </span> </i> 
+                                        </button>
+                                       
+                                        <div  class="dropdown-content">
+                                            <h5> Playfulness: <%= post.playfulness %>/5</h5>
+                                            <h5> Shedding: <%= post.shedding %>/5 </h5>
+                                            <h5> Drooling: <%= post.drooling %>/5 </h5>
+                                            <h5> Grooming: <%= post.grooming %>/5 </h5>
+                                            <h5> Trainability: <%= post.trainability %>/5 </h5>
+                                            <h5> Barking: <%= post.barking %>/5 </h5>
+                                            <h5> Min-life-expectancy: <%= post.min_life_expectancy %> years  </h5>
+                                            <h5> Max-life-expectancy: <%=post.max_life_expectancy %> years </h5>
+                                            <h5> Max-height-male: <%= post.max_height_male %> inches</h5>
+                                            <h5> Max-height-female: <%= post.max_height_female %> inches</h5>
+                                            <h5> Min-height-male: <%= post.min_height_male %> inches </h5>
+                                            <h5> Min-height-female: <%= post.min_height_female %> inches</h5>
+                                            <h5> Max-weight-male: <%= post.max_weight_male %> pounds</h5>
+                                            <h5> Max-weight-female: <%= post.max_weight_female %> pounds</h5>
+                                            <h5> Min-weight-male: <%= post.min_weight_male %> pounds</h5>
+                                            <h5> Min-weight-female: <%= post.min_weight_female %> pounds</h5>
+                                        </div>
+                                    </div>   
+                                </div>
+                               
+                                
+                                
+                            </div> 
+                        </form>
+                       
+                    </div>
+                    
+                <%})%>
+               
+            </div>
+            
+           
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll(".material-symbols-outlined").forEach(function(clicked, indexClicked){
+            clicked.addEventListener("click", function(){
+                clicked.classList.toggle("clicked-materials");
+                this.form.submit();
+                event.preventDefault();
+            })
+            
+        });
+
+        document.querySelector("#harmburger").addEventListener("click", function(){
+            document.querySelector(".nav-inside-container").classList.toggle("nav-inside-pressed");
+        })
+
+        function submitForm(){
+            form.submit();
+            return false
+        }
+    </script>
+</body>
+</html>

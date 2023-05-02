@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    class="profile-nav-bar-buttons-button"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300&family=Roboto:wght@700&family=Rubik:wght@500&family=Varela&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Poppins:wght@500&family=Varela&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="profile-page">
+    <div class="profile-container">
+        <div class="profile-nav-bar" >
+            <nav class="profile-nav-bar-buttons">
+                <a class="profile-nav-bar-buttons-button" style=" font-family: Varela;font-weight: 400;"   href="/">Home</a>
+                <a class="profile-nav-bar-buttons-button" style=" font-family: Varela;font-weight: 400;"  href="/liked">Liked</a>
+                <a class="profile-nav-bar-buttons-button" style=" font-family: Varela;font-weight: 400;"  href="/check">Check</a>
+                <a class="profile-nav-bar-buttons-button" style=" font-family: Varela;font-weight: 400;"   href="/about">About</a>
+                <a class="profile-nav-bar-buttons-button" style=" font-family: Varela;font-weight: 400;"   href="/log">Log Out</a>
+            </nav>
+            <div class="hidden-nav">
+                <span style="margin-top: 20px; margin-right: 20px;" id="harmburger" class="material-symbols-outlined">
+                    menu
+                    <div class="nav-inside-container">
+                        <a  class="nav-inside-buttons"  href="/">Home</a>
+                        <a  class="nav-inside-buttons" href="/liked">Liked</a>
+                        <a class="nav-inside-buttons"  href="/profile">Profile</a>
+                        <a class="nav-inside-buttons"  href="/about">About</a>
+                        <a class="nav-inside-buttons"  href="/log">Log Out</a>
+                    </div>
+                </span>
+            </div>
+        </div>
+
+        <div class="profile-sub-container">
+            <H2 id="profile-heading">Profile</H2>
+            <div class="profile-details">
+                <% profileResult.forEach(function(post){%>
+                    <h3 class="profile-details-detail" > Lastname : <%= post.firstname %> </h3>
+                    <h4 class="profile-details-detail" > Firstname: <%= post.lastname %></h4>
+                    <h4 class="profile-details-detail" >  Email: <%= post.email %> </h4>
+                    <h4 class="profile-details-detail"> Gender: <%= post.sex %> </h4>
+                    <h4 class="profile-details-detail"> Username: <%= post.username %></h4>
+                <%})%>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        document.querySelector("#harmburger").addEventListener("click", function(){
+            document.querySelector(".nav-inside-container").classList.toggle("nav-inside-pressed");
+        })
+    </script>
+</body>
+</html>

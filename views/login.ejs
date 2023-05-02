@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300&family=Roboto:wght@700&family=Rubik:wght@500&family=Varela&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+</head>
+<body class="sign-in-page">
+    <div class="full-container">
+        <div class="form-container">
+            <h2 class="sign-in-text">Sign in</h2>
+            <form action="/signIn" method="post" class="inner-form-container">
+                <div class="invalid Username or Password !"></div>
+            <input class="form-inputs"  type="username" required name="username" placeholder="Enter username" autocomplete="off" title="Enter Username">
+            <input class="form-inputs"  type="password" required name="password" placeholder="Enter password" autocomplete="off" title="Enter password" pattern="{8,16}" title="Password must be 4-8 characters long">
+            <button type="submit" class="submit-button">Sign in</button>
+            </form>
+           
+            <h5 style="font-size: 17px; font-family: Work Sans; font-weight: 500; color: #ffffff;">New User? <span><a  id="create-account" class="create-account" href="/create-account">Create Account</a></span> </h5>
+        </div>
+    </div>
+        
+</body>
+</html>

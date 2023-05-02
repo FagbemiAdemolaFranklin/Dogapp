@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300&family=Roboto:wght@700&family=Rubik:wght@500&family=Varela&display=swap" rel="stylesheet">
+    <title>Liked</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="liked-page">
+    <div class="liked-container">
+        <div class="liked-nav-bar" >
+            <nav class="liked-nav-bar" style="display: flex; gap: 20px; justify-content: right; margin-right: 70px;">
+                <a style="font-family: Varela;font-weight: 400; color: black;" class="check-nav-bar-buttons"  href="/">Home</a>
+                <a style="font-family: Varela;font-weight: 400; color: black;" class="check-nav-bar-buttons" href="/check">Check</a>
+                <a style="font-family: Varela;font-weight: 400; color: black;" class="check-nav-bar-buttons"  href="/profile">Profile</a>
+                <a style="font-family: Varela;font-weight: 400; color: black;" class="check-nav-bar-buttons"  href="/about">About</a>
+                <a style="font-family: Varela;font-weight: 400; color: black;" class="check-nav-bar-buttons"  href="/log">Log Out</a>
+            </nav>
+        </div>
+        <div class="hidden-nav">
+            <span style="margin-top: 20px;" id="harmburger" class="material-symbols-outlined">
+                menu
+                <div class="nav-inside-container">
+                    <a  class="nav-inside-buttons"  href="/">Home</a>
+                    <a class="nav-inside-buttons"  href="/profile">Profile</a>
+                    <a class="nav-inside-buttons"  href="/about">About</a>
+                    <a class="nav-inside-buttons"  href="/log">Log Out</a>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    <div class="dogs-container">
+        <div class="dogs-inner-container">   
+            <% resulter.forEach(function(poster){ %>
+                <div class="dogs-case">
+                    <img class="dogs-images" src= "<%= poster %>" alt="col" width="250px" height="200px">
+                    
+                </div>
+                
+            <%})%>
+           
+        </div>
+    </div>
+    <script>
+        document.querySelector("#harmburger").addEventListener("click", function(){
+            document.querySelector(".nav-inside-container").classList.toggle("nav-inside-pressed");
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300&family=Roboto:wght@700&family=Rubik:wght@500&family=Varela&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    <title>Create-Account</title>
+    <link rel="stylesheet" href="css/styles2.css">
+</head>
+<body class="create-page">
+    <div class="create-full-container">
+        
+        <div class="create-form-container">
+
+            <div class="form-container">
+                <h2 class="create-account">Create Account</h2>
+                <form autocomplete="off" action="/create-account" method="post" class="create-form-inputs">
+                   
+                    <input class="form-inputs-input" required type="text" name="firstname" autocomplete="off"  placeholder="Enter Firstname">
+                    <input class="form-inputs-input" required type="text" name="lastname" autocomplete="off"  placeholder="Enter Lastname">
+                    <input class="form-inputs-input" required type="email" name="email" autocomplete="off"  placeholder="Enter email">
+                    <!-- dob means date of birth -->
+                    <label for="dob" class="date-of-birth">
+                    Date of Birth:
+                    </label>
+                    <input id="dob" class="form-inputs-input" required type="date" name="dob" autocomplete="off"  placeholder="Enter date of birth">
+                    <select  class="form-inputs-input" required name="sex" autocomplete="off">
+                        <option class="form-inputs-input" value="male">Male</option>
+                        <option class="form-inputs-input"  value="female">Female</option>
+                    </select>
+                    <input class="form-inputs-input" required  type="text" id="username"  name="username" autocomplete="off"  placeholder="Enter username">
+                    <input class="form-inputs-input" required  id="password1" type="password" name="password1" autocomplete="off"  placeholder="Enter password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" title="Password must at least one: uppercase letter, lowercase letter, numeric value, special symbol and  be 8-12 characters" >
+                    <input class="form-inputs-input" required id="password2" type="password" name="password2" autocomplete="off"  placeholder="Repeat password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" title="Password must at least one: uppercase letter, lowercase letter, numeric value, special symbol and  be 8-12 characters">
+                    <div class="passwords-do-not-match"></div>
+                    <button class="create-account-button"  type="submit">Create Account</button>
+
+                </form>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <script>
+        document.addEventListener("submit", function(event){
+            document.querySelectorAll("input").forEach(function(post){
+                var values = post.value;
+                var firstPassword = document.getElementById("password1").value
+                var secondPassword = document.getElementById("password2").value
+                if(values.length == 0 ){
+                    event.preventDefault();
+                    document.querySelector(".fill-in-all-fields").innerHTML = "<h5 style='display:inline'; > Please fill all required fields </h5>"
+                
+                }else if(firstPassword !== secondPassword){
+                    event.preventDefault();
+                    document.querySelector(".passwords-do-not-match").innerHTML = "<h5 style = 'display:inline'> Passwords do not match </h5>"
+                }
+               
+            })
+        })
+    </script>
+</body>
+</html>

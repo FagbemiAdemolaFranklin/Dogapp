@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300&family=Roboto:wght@700&family=Rubik:wght@500&family=Varela&display=swap" rel="stylesheet">
+    <title>About</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="about-page">
+    <div class="about-nav-bar">
+        <nav style="display: flex; width: 100%; justify-content: center; gap: 20px; color: white;">
+            <a style="color: rgb(239, 43, 183);" class="check-nav-bar-buttons"  href="/">Home</a>
+            <a style="color: rgb(239, 43, 183);" class="check-nav-bar-buttons"  href="/check">Check</a>
+            <a style="color: rgb(239, 43, 183);" class="check-nav-bar-buttons"  href="/create-account">Sign Up</a>
+            <a style="color: rgb(239, 43, 183);" class="check-nav-bar-buttons"  href="/signIn">SignIn</a>
+        </nav>
+    </div>
+    <div class="hidden-nav">
+        <span style="color: white; margin-top: 20px;" id="harmburger" class="material-symbols-outlined">
+            menu
+            <div class="nav-inside-container">
+                <a  class="nav-inside-buttons"  href="/">Home</a>
+                <a class="nav-inside-buttons"  href="/check">Check</a>
+                <a class="nav-inside-buttons"  href="/create-account">Sign up</a>
+                <a class="nav-inside-buttons"  href="/signIn">Sign in </a>
+            </div>
+        </span>
+    </div>
+    <div class="about-whole-container">
+        <div class="about-container">
+            <h1 class="about-text">About</h1>
+            <h4 class="about-description"> 
+                Welcome to our dog website! We're dedicated to providing dog lovers with the best information for their furry friends. Whether you're a first-time dog owner or an experienced pup parent, we've got everything you need to give your dog the best possible life.
+
+                Our site features a wide range of qualities, training, and behavior, written by experts in the field. 
+                
+                But we're more than just a website – we're a community of dog lovers who share a passion for these amazing animals. We welcome you to join our community, connect with other dog owners, and share your own experiences and insights.
+                
+                Thanks for visiting our site, and we hope you'll come back often to see what's new in the world of dogs!
+            </h4>
+            <p></p>
+        </div>
+    
+        <div class="contact-container">
+            <h1 class="contact-text">Contact</h1>
+            <p class="contact-details">Email: franklinademola4@gmail.com </p>
+            <p class="contact-details">GitHub: </p>
+            <p class="contact-details"> Linkledn: </p>
+        </div>
+    </div>
+    <script>
+        document.querySelector("#harmburger").addEventListener("click", function(){
+            document.querySelector(".nav-inside-container").classList.toggle("nav-inside-pressed");
+        })
+    </script>
+</body>
+</html>
