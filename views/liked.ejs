@@ -44,6 +44,11 @@
         <div class="dogs-inner-container">   
             <% resulter.forEach(function(poster){ %>
                 <div class="dogs-case">
+                    <form action="/liked" method="post">
+                        <button name="delete" type="submit" value="<%= poster %>" style="border: 0px none; outline: none; background-color: transparent; width: 20px; height: 30px;color: rgb(0, 0, 0);"><span class="material-symbols-outlined">
+                            remove
+                            </span></button>
+                    </form>
                     <img class="dogs-images" src= "<%= poster %>" alt="col" width="250px" height="200px">
                     
                 </div>

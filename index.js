@@ -117,9 +117,9 @@ async function main() {
                 });
             })
             }else if(request.session.user === null){
-                response.redirect("/create-account");
+                response.redirect("/signIn");
             }
-        }catch{
+        }catch(error){
             console.log(error);
         }
         
@@ -149,7 +149,7 @@ async function main() {
                 })
     
             }else if(likedPicture){
-                await createAccount.findOneAndUpdate({username:currentUser}, {$push:{"likedPictures":likedPicture}})
+                await createAccount.findOneAndUpdate({username:currentUser}, {$addToSet:{"likedPictures":likedPicture}})
                 .then(function(){
                     response.redirect("/liked");
                     console.log("succesfull!!");
@@ -158,7 +158,7 @@ async function main() {
                     console.log(err);
                 })
             }
-        }catch{
+        }catch(error){
             console.log(error);
         }
 
@@ -174,7 +174,7 @@ async function main() {
                     response.redirect("/");
                 }
             });
-        }catch{
+        }catch(error){
             console.log(error);
         }
         
@@ -188,9 +188,11 @@ async function main() {
             response.render("profile", {profileResult:results})
         }).catch(function(err){
             console.log(err)
+            
         })
-        }catch{
+        }catch(error){
             console.log(error)
+            response.redirect("/signIn")
         }
         
     })
@@ -205,16 +207,24 @@ async function main() {
                 })
                 
             })
-        }catch{
+        }catch(error){
             console.log(error);
         }
        
+    })
+
+    app.post("/liked", async function(request, response){
+        
+        var Delete = request.body.delete;
+        await createAccount.findOneAndUpdate({username:currentUser}, {$pull:{"likedPictures":Delete}}).then(
+            response.redirect("/liked")
+        )
     })
     
     app.get("/signIn", async function(request, response){
         try{
             response.render("login")
-        }catch{
+        }catch(error){
             console.log(error);
         }
        
@@ -252,7 +262,7 @@ async function main() {
                     })
                 }
             })
-        }catch{
+        }catch(error){
             console.log(error);
         }
         
@@ -262,7 +272,7 @@ async function main() {
     app.get("/create-account", function(request, response){
         try{
             response.render("create");
-        }catch{
+        }catch(error){
             console.log(error);
         }
         
@@ -270,7 +280,7 @@ async function main() {
     
     app.post("/create-account", async function(request, response){
         try{
-            const {firstname,lastname,email, password1,password2,sex,dob,username} = request.body;
+            const {firstname,lastname,email, password1,sex,dob,username} = request.body;
 
             const createUser = await new createAccount ({
                 firstname:firstname,
@@ -297,19 +307,16 @@ async function main() {
                         response.redirect("/signIn");   
                     }
                 });
-        }catch{
+        }catch(error){
             console.log(error);
         }
-
-        
-
                
     });
 
     app.get("/about", function(request, response){
         try{
             response.render("about");
-        }catch{
+        }catch(error){
             console.log(error);
         }
         

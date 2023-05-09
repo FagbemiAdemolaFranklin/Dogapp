@@ -139,6 +139,21 @@
             form.submit();
             return false
         }
+
+        document.querySelectorAll("#like-button").forEach(function(button){
+            button.addEventListener("click", function(){
+                $.ajax({
+                    method:"POST",
+                    url:"/check",
+                    data:{
+                        name:"love",
+                        value: document.getElementById("#like-button").value
+                    }
+                }).then(function(reload){
+                    return false
+                })
+            })
+        })
     </script>
 </body>
 </html>
