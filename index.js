@@ -108,11 +108,12 @@ async function main() {
                     'X-Api-Key':process.env.KEYS
                 }
             }
-    
+            var protectiveness = Math.floor(Math.random()*5)+1
             if(request.isAuthenticated){
-                https.get('https://api.api-ninjas.com/v1/dogs?min_life_expectancy=1', options, function(res) {
+                https.get(`https://api.api-ninjas.com/v1/dogs?protectiveness=${protectiveness}`, options, function(res){
                 res.on("data", function(data){
                     const answers = JSON.parse(data);
+                    console.log(answers)
                     response.render("check", {resulter:answers})
                 });
             })

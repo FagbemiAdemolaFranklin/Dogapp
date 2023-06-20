@@ -80,29 +80,30 @@
                                     </button> 
                                     
                                     <div class="dropdown">
-                                        <button type="menu" onclick="event.preventDefault()" > <i><span class="material-symbols-outlined" style="color: black;">
+                                        <button id="open-dropdown" type="menu" onclick="event.preventDefault()" > <i><span class="material-symbols-outlined" style="color: black;">
                                             keyboard_arrow_down
                                             </span> </i> 
+                                            <div  class="dropdown-content">
+                                                <h5> Playfulness: <%= post.playfulness %>/5</h5>
+                                                <h5> Shedding: <%= post.shedding %>/5 </h5>
+                                                <h5> Drooling: <%= post.drooling %>/5 </h5>
+                                                <h5> Grooming: <%= post.grooming %>/5 </h5>
+                                                <h5> Trainability: <%= post.trainability %>/5 </h5>
+                                                <h5> Barking: <%= post.barking %>/5 </h5>
+                                                <h5> Min-life-expectancy: <%= post.min_life_expectancy %> years  </h5>
+                                                <h5> Max-life-expectancy: <%=post.max_life_expectancy %> years </h5>
+                                                <h5> Max-height-male: <%= post.max_height_male %> inches</h5>
+                                                <h5> Max-height-female: <%= post.max_height_female %> inches</h5>
+                                                <h5> Min-height-male: <%= post.min_height_male %> inches </h5>
+                                                <h5> Min-height-female: <%= post.min_height_female %> inches</h5>
+                                                <h5> Max-weight-male: <%= post.max_weight_male %> pounds</h5>
+                                                <h5> Max-weight-female: <%= post.max_weight_female %> pounds</h5>
+                                                <h5> Min-weight-male: <%= post.min_weight_male %> pounds</h5>
+                                                <h5> Min-weight-female: <%= post.min_weight_female %> pounds</h5>
+                                            </div>
                                         </button>
                                        
-                                        <div  class="dropdown-content">
-                                            <h5> Playfulness: <%= post.playfulness %>/5</h5>
-                                            <h5> Shedding: <%= post.shedding %>/5 </h5>
-                                            <h5> Drooling: <%= post.drooling %>/5 </h5>
-                                            <h5> Grooming: <%= post.grooming %>/5 </h5>
-                                            <h5> Trainability: <%= post.trainability %>/5 </h5>
-                                            <h5> Barking: <%= post.barking %>/5 </h5>
-                                            <h5> Min-life-expectancy: <%= post.min_life_expectancy %> years  </h5>
-                                            <h5> Max-life-expectancy: <%=post.max_life_expectancy %> years </h5>
-                                            <h5> Max-height-male: <%= post.max_height_male %> inches</h5>
-                                            <h5> Max-height-female: <%= post.max_height_female %> inches</h5>
-                                            <h5> Min-height-male: <%= post.min_height_male %> inches </h5>
-                                            <h5> Min-height-female: <%= post.min_height_female %> inches</h5>
-                                            <h5> Max-weight-male: <%= post.max_weight_male %> pounds</h5>
-                                            <h5> Max-weight-female: <%= post.max_weight_female %> pounds</h5>
-                                            <h5> Min-weight-male: <%= post.min_weight_male %> pounds</h5>
-                                            <h5> Min-weight-female: <%= post.min_weight_female %> pounds</h5>
-                                        </div>
+                                        
                                     </div>   
                                 </div>
                                
@@ -122,38 +123,12 @@
     </div>
 
     <script>
-        document.querySelectorAll(".material-symbols-outlined").forEach(function(clicked, indexClicked){
-            clicked.addEventListener("click", function(){
-                clicked.classList.toggle("clicked-materials");
-                this.form.submit();
-                event.preventDefault();
-            })
-            
-        });
-
-        document.querySelector("#harmburger").addEventListener("click", function(){
-            document.querySelector(".nav-inside-container").classList.toggle("nav-inside-pressed");
+        
+      document.querySelectorAll("#open-dropdown").forEach((selected, indexSelected)=> {
+        selected.addEventListener("click", () => {
+            document.querySelectorAll(".dropdown-content")[indexSelected].classList.toggle("open-dropdown")
         })
-
-        function submitForm(){
-            form.submit();
-            return false
-        }
-
-        document.querySelectorAll("#like-button").forEach(function(button){
-            button.addEventListener("click", function(){
-                $.ajax({
-                    method:"POST",
-                    url:"/check",
-                    data:{
-                        name:"love",
-                        value: document.getElementById("#like-button").value
-                    }
-                }).then(function(reload){
-                    return false
-                })
-            })
-        })
+      })
     </script>
 </body>
 </html>
